@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vscode/master/extensions/configuration-editing/schemas/devContainer.schema.json",
+    "dockerFile": "Dockerfile",
+    "name": "Courier DevContainer",
+    "extensions": [
+        "EditorConfig.EditorConfig",
+        "ms-dotnettools.csharp"
+    ]
+}

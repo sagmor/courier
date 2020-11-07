@@ -1,11 +1,13 @@
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+namespace HawkLab.Courier.Models.UnitTests
+{
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HawkLab.Courier.Models.UnitTests {
     [TestClass]
-    public class ThreadTests {
+    public class ThreadTests
+    {
         [TestMethod]
-        public void TestThreadHasTitle() {
+        public void TestThreadHasTitle()
+        {
             var thread = new Thread();
 
             Assert.IsNull(thread.Title);

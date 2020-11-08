@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Runtimes/Monolith/bin/Debug/HawkLab.Courier.Runtimes.Monoilith.dll",
+            "program": "${workspaceFolder}/src/Runtimes/Monolith/bin/Debug/HawkLab.Courier.Runtimes.Monolith.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",

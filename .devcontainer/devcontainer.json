@@ -7,6 +7,6 @@
     ],
 
     // Run Bash script in .devcontainer directory
-    "postCreateCommand": "/bin/bash ./.devcontainer/post-create.sh > /tmpc/post-create.log",
+    "postCreateCommand": "/bin/bash ./.devcontainer/post-create.sh > /tmp/post-create.log",
 
 }

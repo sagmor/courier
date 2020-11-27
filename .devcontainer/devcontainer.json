@@ -11,6 +11,8 @@
         "dockerfile": "Dockerfile"
     },
 
+    "forwardPorts": [5001, 5000],
+
     // Run Bash script in .devcontainer directory
     "postCreateCommand": "/bin/bash ./.devcontainer/post-create.sh > /tmp/post-create.log"
 }

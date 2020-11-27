@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Monolith Runtime",
+            "name": "Run Web Server",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/src/Runtimes/Monolith/bin/Debug/HawkLab.Courier.Runtimes.Monolith.dll",
+            "program": "${workspaceFolder}/src/Servers/Web/bin/Debug/net5.0/HawkLab.Courier.Servers.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",

@@ -4,7 +4,8 @@
     "name": "Courier DevContainer",
     "extensions": [
         "EditorConfig.EditorConfig",
-        "ms-dotnettools.csharp"
+        "ms-dotnettools.csharp",
+        "mongodb.mongodb-vscode"
     ],
 
     "dockerComposeFile": "docker-compose.yml",

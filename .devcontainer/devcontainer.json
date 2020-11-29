@@ -7,9 +7,8 @@
         "ms-dotnettools.csharp"
     ],
 
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
 
     "forwardPorts": [5001, 5000],
 

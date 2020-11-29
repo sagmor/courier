@@ -10,7 +10,7 @@ namespace HawkLab.Courier.Models.UnitTests
         {
             var thread = new Thread();
 
-            Assert.IsNull(thread.Title);
+            Assert.IsNull(thread.Subject);
         }
     }
 }

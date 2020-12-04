@@ -4,12 +4,12 @@
     "name": "Courier DevContainer",
     "extensions": [
         "EditorConfig.EditorConfig",
-        "ms-dotnettools.csharp"
+        "ms-dotnettools.csharp",
+        "mongodb.mongodb-vscode"
     ],
 
-    "build": {
-        "dockerfile": "Dockerfile"
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
 
     "forwardPorts": [5001, 5000],
 

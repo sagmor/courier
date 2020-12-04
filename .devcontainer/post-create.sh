@@ -9,6 +9,6 @@ wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-mi
 dpkg -i /tmp/packages-microsoft-prod.deb
 
 apt update
-apt install -y powershell dotnet-runtime-3.1
+apt install -y powershell dotnet-runtime-3.1 moby-cli
 
 echo "post create succeeded"

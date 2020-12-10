@@ -18,6 +18,9 @@ namespace MyApp.Namespace
         public string Message { get; set; }
         public IEnumerable<Thread> Threads { get; set; }
 
+        [BindProperty(SupportsGet = true)] 
+        public string SearchTerm { get; set; }
+
         public ListModel(IConfiguration config,
                          IThreadRepository threadRepository)
         {
@@ -27,7 +30,7 @@ namespace MyApp.Namespace
         public void OnGet()
         {
             Message = config["Message"];
-            Threads = threadRepository.GetAll();
+            Threads = threadRepository.GetThreadsBySubject(SearchTerm);
         }
     }
 }

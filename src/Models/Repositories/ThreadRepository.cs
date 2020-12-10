@@ -9,7 +9,7 @@ namespace HawkLab.Courier.Models.Repositories
 
     public interface IThreadRepository
     {
-        IEnumerable<Thread> GetAll();
+        IEnumerable<Thread> GetThreadsBySubject(string subject);
     }
 
     public class InMemoryThreadRepository : IThreadRepository
@@ -26,9 +26,10 @@ namespace HawkLab.Courier.Models.Repositories
                 new Thread { Id = 4, Subject = "2021 Chile Trip", Summary = "List of projects we want to finish before Christmas" },
             };
         }
-        public IEnumerable<Thread> GetAll()
+        public IEnumerable<Thread> GetThreadsBySubject(string subject = null)
         {
             return from t in threads
+                   where string.IsNullOrEmpty(subject) || t.Subject.StartsWith(subject)
                    orderby t.Subject
                    select t;
         }

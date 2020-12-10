@@ -4,22 +4,33 @@ namespace HawkLab.Courier.Models.Repositories
     using System.Threading.Tasks;
     using MongoDB.Bson;
     using MongoDB.Driver;
+    using System.Linq;
+    using HawkLab.Courier.Models;
 
-    public class ThreadRepository
+    public interface IThreadRepository
     {
-        private const string DatabaseName = "courier";
-        private const string CollectionName = "threads";
-        private IMongoCollection<Thread> threadsCollection;
+        IEnumerable<Thread> GetAll();
+    }
 
-        public ThreadRepository(IMongoClient mongoClient)
+    public class InMemoryThreadRepository : IThreadRepository
+    {
+
+        readonly List<Thread> threads;
+        public InMemoryThreadRepository()
         {
-            var mongoDatabase = mongoClient.GetDatabase(DatabaseName);
-            threadsCollection = mongoDatabase.GetCollection<Thread>(CollectionName);
+            threads = new List<Thread>()
+            {
+                new Thread { Id = 1, Subject = "December Projects", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 2, Subject = "Hawk Lab Ideas", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 3, Subject = "Home Renovation", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 4, Subject = "2021 Chile Trip", Summary = "List of projects we want to finish before Christmas" },
+            };
         }
-
-        public async Task<IEnumerable<Thread>> GetThreadsAsync()
+        public IEnumerable<Thread> GetAll()
         {
-            return await threadsCollection.Find(new BsonDocument()).ToListAsync();
+            return from t in threads
+                   orderby t.Subject
+                   select t;
         }
     }
 }

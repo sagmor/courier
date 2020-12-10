@@ -1,0 +1,38 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Courier", "Courier.csproj", "{37FA9824-8CB2-40A3-BCFB-6672CB2B0F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HawkLab.Courier.Models.UnitTests", "src\Models.UnitTests\Models.UnitTests.csproj", "{83E5491C-87D0-40DA-8289-9EBB43798E2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HawkLab.Courier.Models", "src\Models\Models.csproj", "{4110BAEB-B4B5-4B7C-946F-2E7A58D4997C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HawkLab.Courier.Runtimes.Monolith", "src\Runtimes\Monolith\Monolith.csproj", "{805DD3E7-6473-4B41-B5F3-3840BBC55AD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HawkLab.Courier.Servers.SMTP", "src\Servers\SMTP\SMTP.csproj", "{22A64B6A-7D7C-439E-BA44-E6DE0D2BE624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HawkLab.Courier.Servers.Web", "src\Servers\Web\Web.csproj", "{7B681674-DB2C-43D3-B94A-1EB5C964C628}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37FA9824-8CB2-40A3-BCFB-6672CB2B0F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37FA9824-8CB2-40A3-BCFB-6672CB2B0F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A64B6A-7D7C-439E-BA44-E6DE0D2BE624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A64B6A-7D7C-439E-BA44-E6DE0D2BE624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805DD3E7-6473-4B41-B5F3-3840BBC55AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805DD3E7-6473-4B41-B5F3-3840BBC55AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B681674-DB2C-43D3-B94A-1EB5C964C628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B681674-DB2C-43D3-B94A-1EB5C964C628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4110BAEB-B4B5-4B7C-946F-2E7A58D4997C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4110BAEB-B4B5-4B7C-946F-2E7A58D4997C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E5491C-87D0-40DA-8289-9EBB43798E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E5491C-87D0-40DA-8289-9EBB43798E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D03455BB-53E8-4556-A94F-1CFEE8B185F4}
+	EndGlobalSection
+EndGlobal

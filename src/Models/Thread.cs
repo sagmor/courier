@@ -6,12 +6,11 @@ namespace HawkLab.Courier.Models
     {
         public Thread()
         {
-            Id = Guid.NewGuid();
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public Guid Id { get; init; }
+        public int Id { get; init; }
 
         public string Subject { get; set; }
 

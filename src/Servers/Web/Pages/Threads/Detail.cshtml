@@ -1,0 +1,14 @@
+@page "{threadId:int}"
+@model MyApp.Namespace.DetailModel
+@{
+}
+
+<h2>@Model.Thread.Subject</h2>
+<div>
+    Id: @Model.Thread.Id
+</div>
+<div>
+    Summary: @Model.Thread.Summary
+</div>
+
+<a asp-page="./List" class="btn-primary btn-default">All Threads</a>

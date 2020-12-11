@@ -24,6 +24,13 @@
     <tr>
         <td>@thread.Subject</td>
         <td>@thread.Summary</td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Detail"
+               asp-route-threadId="@thread.Id">
+                <i class="">Details</i>
+            </a>
+        </td>
     </tr>
     }
 </table>

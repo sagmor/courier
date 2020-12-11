@@ -20,9 +20,14 @@ namespace MyApp.Namespace
         {
             this.threadRepository = threadRepository;
         }
-        public void OnGet(int threadId)
+        public IActionResult OnGet(int threadId)
         {
             Thread = threadRepository.GetById(threadId);
+            if(Thread == null)
+            {
+                return RedirectToPage("./NotFound");
+            }
+            return Page();
             
         }
     }

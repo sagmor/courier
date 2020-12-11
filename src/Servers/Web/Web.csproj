@@ -4,8 +4,4 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Models\Models.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\Threads\" />
-  </ItemGroup>
 </Project>

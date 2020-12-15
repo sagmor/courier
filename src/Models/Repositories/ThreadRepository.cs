@@ -7,16 +7,23 @@ namespace HawkLab.Courier.Models.Repositories
     using System.Linq;
     using HawkLab.Courier.Models;
 
+
     public interface IThreadRepository
     {
-        IEnumerable<Thread> GetThreadsBySubject(string subject);
+        IEnumerable<Thread> GetThreadsBySubject(string subject = null);
+
         Thread GetById(int id);
+
+        Thread Update(Thread updatedThread);
+
+        int Commit();
     }
 
     public class InMemoryThreadRepository : IThreadRepository
     {
 
         readonly List<Thread> threads;
+
         public InMemoryThreadRepository()
         {
             threads = new List<Thread>()
@@ -32,6 +39,24 @@ namespace HawkLab.Courier.Models.Repositories
         {
             return threads.SingleOrDefault(t => t.Id == id);
         }
+
+        public Thread Update(Thread updatedThread)
+        {
+            var thread = threads.SingleOrDefault(t => t.Id == updatedThread.Id);
+            if (thread != null)
+            {
+                thread.Subject = updatedThread.Subject;
+                thread.Summary = updatedThread.Summary;
+            }
+
+            return thread;
+        }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
         public IEnumerable<Thread> GetThreadsBySubject(string subject = null)
         {
             return from t in threads
@@ -40,4 +65,6 @@ namespace HawkLab.Courier.Models.Repositories
                    select t;
         }
     }
+
+    
 }

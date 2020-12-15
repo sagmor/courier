@@ -16,6 +16,8 @@ namespace HawkLab.Courier.Models.Repositories
 
         Thread Update(Thread updatedThread);
 
+        Thread Add(Thread newThread);
+
         int Commit();
     }
 
@@ -39,6 +41,14 @@ namespace HawkLab.Courier.Models.Repositories
         {
             return threads.SingleOrDefault(t => t.Id == id);
         }
+
+        public Thread Add(Thread newThread)
+        {
+            threads.Add(newThread);
+            newThread.Id = threads.Max(r => r.Id) + 1;
+            return newThread;
+        }
+
 
         public Thread Update(Thread updatedThread)
         {

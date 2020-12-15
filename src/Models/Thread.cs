@@ -11,7 +11,7 @@ namespace HawkLab.Courier.Models
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public int Id { get; init; }
+        public int Id { get; set; }
 
         [Required]
         public string Subject { get; set; }

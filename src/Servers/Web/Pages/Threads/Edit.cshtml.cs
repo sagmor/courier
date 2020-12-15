@@ -21,9 +21,17 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
             this.threadRepository = threadRepository;
         }
 
-        public IActionResult OnGet(int threadId)
+        public IActionResult OnGet(int? threadId)
         {
-            Thread = threadRepository.GetById(threadId);
+            if (threadId.HasValue)
+            {
+                Thread = threadRepository.GetById(threadId.Value);
+            }
+            else
+            {
+                Thread = new Thread();
+            }
+
             if (Thread == null)
             {
                 return RedirectToPage("./NotFound");
@@ -34,14 +42,23 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                Thread = threadRepository.Update(Thread);
-                threadRepository.Commit();
-                return RedirectToPage("./Detail", new { threadId = Thread.Id });
+                return Page();
             }
 
-            return Page();
+            if (Thread.Id > 0)
+            {
+                threadRepository.Update(Thread);
+            }
+            else
+            {
+                threadRepository.Add(Thread);
+            }
+
+            threadRepository.Commit();
+            TempData["Message"] = "Thread saved";
+            return RedirectToPage("./Detail", new { threadId = Thread.Id });
         }
     }
 }

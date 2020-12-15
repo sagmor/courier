@@ -34,8 +34,13 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
 
         public IActionResult OnPost()
         {
-            Thread = threadRepository.Update(Thread);
-            threadRepository.Commit();
+            if (ModelState.IsValid)
+            {
+                Thread = threadRepository.Update(Thread);
+                threadRepository.Commit();
+                return RedirectToPage("./Detail", new { threadId = Thread.Id });
+            }
+
             return Page();
         }
     }

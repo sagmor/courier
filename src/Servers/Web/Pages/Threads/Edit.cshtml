@@ -10,10 +10,12 @@
     <div class="form-group">
         <label asp-for="Thread.Subject"></label>
         <input asp-for="Thread.Subject" class="form-control" />
+        <span class="text-danger" asp-validation-for="Thread.Subject"></span>
     </div>
     <div class="form-group">
         <label asp-for="Thread.Summary"></label>
         <input asp-for="Thread.Summary" class="form-control" />
+        <span class="text-danger" asp-validation-for="Thread.Summary"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Save</button>

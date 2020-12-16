@@ -4,22 +4,77 @@ namespace HawkLab.Courier.Models.Repositories
     using System.Threading.Tasks;
     using MongoDB.Bson;
     using MongoDB.Driver;
+    using System.Linq;
+    using HawkLab.Courier.Models;
 
-    public class ThreadRepository
+
+    public interface IThreadRepository
     {
-        private const string DatabaseName = "courier";
-        private const string CollectionName = "threads";
-        private IMongoCollection<Thread> threadsCollection;
+        IEnumerable<Thread> GetThreadsBySubject(string subject = null);
 
-        public ThreadRepository(IMongoClient mongoClient)
+        Thread GetById(int id);
+
+        Thread Update(Thread updatedThread);
+
+        Thread Add(Thread newThread);
+
+        int Commit();
+    }
+
+    public class InMemoryThreadRepository : IThreadRepository
+    {
+
+        readonly List<Thread> threads;
+
+        public InMemoryThreadRepository()
         {
-            var mongoDatabase = mongoClient.GetDatabase(DatabaseName);
-            threadsCollection = mongoDatabase.GetCollection<Thread>(CollectionName);
+            threads = new List<Thread>()
+            {
+                new Thread { Id = 1, Subject = "December Projects", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 2, Subject = "Hawk Lab Ideas", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 3, Subject = "Home Renovation", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = 4, Subject = "2021 Chile Trip", Summary = "List of projects we want to finish before Christmas" },
+            };
         }
 
-        public async Task<IEnumerable<Thread>> GetThreadsAsync()
+        public Thread GetById(int id)
         {
-            return await threadsCollection.Find(new BsonDocument()).ToListAsync();
+            return threads.SingleOrDefault(t => t.Id == id);
+        }
+
+        public Thread Add(Thread newThread)
+        {
+            threads.Add(newThread);
+            newThread.Id = threads.Max(r => r.Id) + 1;
+            return newThread;
+        }
+
+
+        public Thread Update(Thread updatedThread)
+        {
+            var thread = threads.SingleOrDefault(t => t.Id == updatedThread.Id);
+            if (thread != null)
+            {
+                thread.Subject = updatedThread.Subject;
+                thread.Summary = updatedThread.Summary;
+            }
+
+            return thread;
+        }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
+        public IEnumerable<Thread> GetThreadsBySubject(string subject = null)
+        {
+            return from t in threads
+                   where string.IsNullOrEmpty(subject) || t.Subject.StartsWith(subject)
+                   orderby t.Subject
+                   select t;
         }
     }
+
+    
 }

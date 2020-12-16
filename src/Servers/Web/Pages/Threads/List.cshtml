@@ -1,0 +1,52 @@
+@page
+@model MyApp.Namespace.ListModel
+@{
+}
+<h1>Threads</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control"  asp-for="SearchTerm"/>
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="bi bi-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+
+</form>
+
+<table class="table">
+    @foreach(var thread in Model.Threads)
+    {
+    <tr>
+        <td>@thread.Subject</td>
+        <td>
+            @thread.Summary
+
+            
+
+            </td>
+        <td>
+            <a class="btn btn-lg"
+               asp-page="./Detail"
+               asp-route-threadId="@thread.Id">
+                <img src="~/bootstrap-icons/zoom-in.svg" alt="" width="32" height="32" title="Details" />
+            </a>
+            <a class="btn btn-lg"
+               asp-page="./Edit"
+               asp-route-threadId="@thread.Id">
+                <img src="~/bootstrap-icons/pencil-square.svg" alt="" width="32" height="32" title="Edit" />
+            </a>
+        </td>
+    </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Add New</a>
+
+
+
+

@@ -15,6 +15,5 @@
 
     <!-- Naming -->
     <AssemblyName>HawkLab.Courier.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>$(AssemblyName)</RootNamespace>
   </PropertyGroup>
 </Project>

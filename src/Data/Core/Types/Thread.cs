@@ -1,4 +1,4 @@
-namespace HawkLab.Courier.Models
+namespace HawkLab.Data.Core.Types
 {
     using System;
     using System.ComponentModel.DataAnnotations;

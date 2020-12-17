@@ -1,26 +1,11 @@
-namespace HawkLab.Courier.Models.Repositories
+using System.Collections.Generic;
+using System.Linq;
+using HawkLab.Data.Core.Persistence;
+using HawkLab.Data.Core.Types;
+
+
+namespace HawkLab.Data.InMemoryPersistence
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using System.Linq;
-    using HawkLab.Courier.Models;
-
-
-    public interface IThreadRepository
-    {
-        IEnumerable<Thread> GetThreadsBySubject(string subject = null);
-
-        Thread GetById(int id);
-
-        Thread Update(Thread updatedThread);
-
-        Thread Add(Thread newThread);
-
-        int Commit();
-    }
-
     public class InMemoryThreadRepository : IThreadRepository
     {
 

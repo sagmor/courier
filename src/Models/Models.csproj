@@ -4,4 +4,8 @@
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
 </Project>

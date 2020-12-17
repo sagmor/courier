@@ -1,5 +1,6 @@
 namespace HawkLab.Courier.Models.UnitTests
 {
+    using HawkLab.Data.Core.Types;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HawkLab.Data.Core.Persistence;
-using HawkLab.Data.InMemoryPersistence;
+using HawkLab.Data.MongoPersistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Driver;
 
 namespace HawkLab.Courier.Servers.Web
 {
@@ -25,7 +26,18 @@ namespace HawkLab.Courier.Servers.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IThreadRepository, InMemoryThreadRepository>();
+            // Setup MongoDB Client
+            services.AddSingleton<IMongoClient>(c =>
+            {
+                // TODO: Make this configurable
+                string connectionString = "mongodb://mongodb";
+
+                return new MongoClient(connectionString);
+            });
+
+            // Register Repositories
+            services.AddTransient<IThreadRepository, MongoThreadRepository>();
+
             services.AddRazorPages();
         }
 

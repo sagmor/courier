@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HawkLab.Courier.Models.Repositories;
+using HawkLab.Data.Core.Persistence;
+using HawkLab.Data.Core.Types;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
-using HawkLab.Courier.Models;
 
 namespace MyApp.Namespace
 {

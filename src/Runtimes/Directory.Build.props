@@ -5,7 +5,6 @@
 
   <PropertyGroup>
     <AssemblyName>HawkLab.Courier.Runtimes.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>$(AssemblyName)</RootNamespace>
 
     <!-- Avoid TargetFramework on the output path to keep end paths consisten for the application runtimes  -->
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>

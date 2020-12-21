@@ -4,9 +4,14 @@
     "name": "Courier DevContainer",
     "extensions": [
         "EditorConfig.EditorConfig",
+        "k--kato.docomment",
+        "mongodb.mongodb-vscode",
         "ms-dotnettools.csharp",
-        "mongodb.mongodb-vscode"
+        "visualstudioexptteam.vscodeintellicode"
     ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/zsh"
+    },
 
     "dockerComposeFile": "docker-compose.yml",
     "service": "devcontainer",

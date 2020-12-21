@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Data.InMemo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Data.MongoPersistence", "src\Data\MongoPersistence\MongoPersistence.csproj", "{E6C9FB97-179A-45BD-8846-6308913BF64A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Models.UnitTests", "src\Models.UnitTests\Models.UnitTests.csproj", "{83E5491C-87D0-40DA-8289-9EBB43798E2B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Models", "src\Models\Models.csproj", "{4110BAEB-B4B5-4B7C-946F-2E7A58D4997C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Runtimes.Monolith", "src\Runtimes\Monolith\Monolith.csproj", "{805DD3E7-6473-4B41-B5F3-3840BBC55AD7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HawkLab.Courier.Servers.SMTP", "src\Servers\SMTP\SMTP.csproj", "{22A64B6A-7D7C-439E-BA44-E6DE0D2BE624}"

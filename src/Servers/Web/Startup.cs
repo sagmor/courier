@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using HawkLab.Data.Core.Persistence;
-using HawkLab.Data.InMemoryPersistence;
+using HawkLab.Data.MongoPersistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +20,7 @@ namespace HawkLab.Courier.Servers.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IThreadRepository, InMemoryThreadRepository>();
+            services.AddSingleton<IThreadRepository, MongoThreadRepository>();
             services.AddRazorPages();
         }
 

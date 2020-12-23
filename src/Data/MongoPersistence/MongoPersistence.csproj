@@ -3,5 +3,6 @@
 
   <ItemGroup>
     <ProjectReference Include="../Core/Core.csproj" />
+    <PackageReference Include="MongoDB.Driver" />
   </ItemGroup>
 </Project>

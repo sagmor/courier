@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using HawkLab.Data.Core.Persistence;
@@ -24,7 +25,7 @@ namespace HawkLab.Data.MongoPersistence
             return 0;
         }
 
-        public Thread GetById(int id)
+        public Thread GetById(Guid id)
         {
             throw new System.NotImplementedException();
         }

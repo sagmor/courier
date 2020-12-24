@@ -21,7 +21,7 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
             this.threadRepository = threadRepository;
         }
 
-        public IActionResult OnGet(int? threadId)
+        public IActionResult OnGet(Guid? threadId)
         {
             if (threadId.HasValue)
             {
@@ -47,7 +47,7 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
                 return Page();
             }
 
-            if (Thread.Id > 0)
+            if (Thread.Id != Guid.Parse("00000000-0000-0000-0000-000000000000"))
             {
                 threadRepository.Update(Thread);
             }

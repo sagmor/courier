@@ -2,6 +2,7 @@ namespace HawkLab.Data.Core.Types
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using MongoDB.Bson.Serialization.Attributes;
 
     public class Thread
     {
@@ -11,7 +12,8 @@ namespace HawkLab.Data.Core.Types
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public int Id { get; set; }
+        [BsonId]
+        public Guid Id { get; set; }
 
         [Required]
         public string Subject { get; set; }

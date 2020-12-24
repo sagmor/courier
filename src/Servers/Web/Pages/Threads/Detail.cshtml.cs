@@ -22,7 +22,7 @@ namespace MyApp.Namespace
         {
             this.threadRepository = threadRepository;
         }
-        public IActionResult OnGet(int threadId)
+        public IActionResult OnGet(Guid threadId)
         {
             Thread = threadRepository.GetById(threadId);
             if(Thread == null)

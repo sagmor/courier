@@ -2,6 +2,9 @@
   <Sdk Name="Microsoft.Build.CentralPackageVersions" />
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web.UI" />
+    <PackageReference Include="Microsoft.Identity.Web" />
+
     <ProjectReference Include="..\..\Data\Core\Core.csproj" />
     <ProjectReference Include="..\..\Data\InMemoryPersistence\InMemoryPersistence.csproj" />
   </ItemGroup>

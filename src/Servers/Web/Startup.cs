@@ -4,12 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using HawkLab.Data.Core.Persistence;
 using HawkLab.Data.InMemoryPersistence;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 
 namespace HawkLab.Courier.Servers.Web
 {
@@ -25,6 +30,17 @@ namespace HawkLab.Courier.Servers.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Sign-in users with the Microsoft identity platform
+            services.AddMicrosoftIdentityWebAppAuthentication(Configuration);
+
+            services.AddControllersWithViews(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            }).AddMicrosoftIdentityUI();
+
             services.AddSingleton<IThreadRepository, InMemoryThreadRepository>();
             services.AddRazorPages();
         }
@@ -48,6 +64,7 @@ namespace HawkLab.Courier.Servers.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

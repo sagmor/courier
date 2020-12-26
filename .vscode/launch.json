@@ -11,9 +11,12 @@
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Servers/Web/bin/Debug/net5.0/HawkLab.Courier.Servers.Web.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/src/Servers/Web/bin/Debug/net5.0/",
             "console": "internalConsole",
-            "stopAtEntry": false
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
         }
     ]
 }

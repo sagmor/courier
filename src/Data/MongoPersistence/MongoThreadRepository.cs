@@ -31,15 +31,8 @@ namespace HawkLab.Data.MongoPersistence
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("courier");
             var collection = database.GetCollection<Thread>("threads");
-
-            var documents = collection.Find(new BsonDocument()).ToList();
-            var document = documents.SingleOrDefault(t => t.Id == id);
-            
-            // Failing for some reason
-            // var filter = Builders<Thread>.Filter.Eq("Id", id);
-            // var document = collection.Find(filter).First();
-            // var document = collection.Find(t => t.Id == id).Single();
-
+            var filter = Builders<Thread>.Filter.Eq("Id", id);
+            var document = collection.Find(filter).First();
             return document;
         }
 
@@ -57,16 +50,11 @@ namespace HawkLab.Data.MongoPersistence
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("courier");
             var collection = database.GetCollection<Thread>("threads");
-            // collection.UpdateOne(updatedThread);
-
-            var result = collection.ReplaceOne(
-                new BsonDocument("_id", updatedThread.Id), 
-                updatedThread,
-                new UpdateOptions { IsUpsert = true});
+            var filter = Builders<Thread>.Filter.Eq("Id", updatedThread.Id);
+            var update = Builders<Thread>.Update.Set("Subject", updatedThread.Subject)
+                                                .Set("Summary", updatedThread.Summary);
+            collection.UpdateOne(filter, update);
             return updatedThread;
-            // throw new System.NotImplementedException();
         }
     }
-
-
 }

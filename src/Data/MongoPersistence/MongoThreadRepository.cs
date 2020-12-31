@@ -56,5 +56,14 @@ namespace HawkLab.Data.MongoPersistence
             collection.UpdateOne(filter, update);
             return updatedThread;
         }
+
+        public void Delete(Thread theThread)
+        {
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("courier");
+            var collection = database.GetCollection<Thread>("threads");
+            var filter = Builders<Thread>.Filter.Eq("Id", theThread.Id);
+            collection.DeleteOne(filter);
+        }
     }
 }

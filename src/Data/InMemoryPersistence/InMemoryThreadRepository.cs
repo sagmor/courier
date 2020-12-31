@@ -60,6 +60,11 @@ namespace HawkLab.Data.InMemoryPersistence
                    orderby t.Subject
                    select t;
         }
+
+         public void Delete(Thread theThread)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     

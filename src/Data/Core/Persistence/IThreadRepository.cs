@@ -15,6 +15,8 @@ namespace HawkLab.Data.Core.Persistence
 
         Thread Add(Thread newThread);
 
+        void Delete(Thread theThread);
+
         int Commit();
     }
 }

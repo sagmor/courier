@@ -26,6 +26,7 @@ namespace HawkLab.Courier.Servers.Web
             BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
             BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
             services.AddSingleton<IThreadRepository, MongoThreadRepository>();
+            services.AddSingleton<IMessageRepository, MongoMessageRepository>();
             services.AddRazorPages();
         }
 

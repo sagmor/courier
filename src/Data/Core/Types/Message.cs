@@ -1,13 +1,13 @@
 namespace HawkLab.Data.Core.Types
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Threading;
     using MongoDB.Bson.Serialization.Attributes;
 
-    public class Thread
+    public class Message
     {
-        public Thread()
+        public Message()
         {
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
@@ -17,15 +17,10 @@ namespace HawkLab.Data.Core.Types
         public Guid Id { get; set; }
 
         [Required]
-        public string Subject { get; set; }
+        public string Content { get; set; }
 
         public DateTime CreatedAt { get; init; }
 
         public DateTime UpdatedAt { get; set; }
-
-        [Required]
-        public string Summary { get; set; }
-
-        public List<Message> Messages { get; set; }
     }
 }

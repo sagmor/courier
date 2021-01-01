@@ -11,7 +11,7 @@ namespace MyApp.Namespace
         private readonly IThreadRepository threadRepository;
 
         [TempData]
-        public string Message { get; set; }
+        public string Notice { get; set; }
 
         public Thread Thread { get; set; }
 

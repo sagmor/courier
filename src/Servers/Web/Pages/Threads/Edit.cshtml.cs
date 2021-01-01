@@ -57,7 +57,7 @@ namespace HawkLab.Courier.Servers.Web.Pages.Threads
             }
 
             threadRepository.Commit();
-            TempData["Message"] = "Thread saved";
+            TempData["Notice"] = "Thread saved";
             return RedirectToPage("./Detail", new { threadId = Thread.Id });
         }
     }

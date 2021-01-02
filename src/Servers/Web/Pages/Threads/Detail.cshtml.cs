@@ -41,6 +41,7 @@ namespace MyApp.Namespace
 
         public IActionResult OnPost(Guid threadId)
         {
+            Thread = threadRepository.GetById(threadId);
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -52,7 +53,7 @@ namespace MyApp.Namespace
             }
             else
             {
-                messageRepository.Add(Message);
+                messageRepository.Add(Message, Thread);
             }
             messageRepository.Commit();
             TempData["Notice"] = "Message saved";

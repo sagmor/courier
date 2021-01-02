@@ -10,7 +10,7 @@ namespace HawkLab.Data.Core.Persistence
 
         Message Update(Message updatedMessage);
 
-        Message Add(Message newMessage);
+        Message Add(Message newMessage, Thread aThread);
 
         void Delete(Message theMessage);
 

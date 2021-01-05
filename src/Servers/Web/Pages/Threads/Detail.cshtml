@@ -8,7 +8,6 @@
 {
 <div class="alert alert-info">@Model.Notice</div>
 }
-
 <h2>@Model.Thread.Subject</h2>
 <div>
     Id: @Model.Thread.Id
@@ -17,7 +16,18 @@
     Summary: @Model.Thread.Summary
 </div>
 <div>
-    Messages: 
+    Messages:
+    <table class="table">
+    @foreach(var message in Model.Thread.Messages)
+    {
+    <tr>
+        <td>@message.Content</td>
+    </tr>
+    }
+    </table>
+</div>
+<div>
+    Add new message: 
 </div>
 <div>
     Create new message:
@@ -31,5 +41,4 @@
     <button type="submit" class="btn btn-primary">Save</button>
 </form> 
 </div>
-
 <a asp-page="./List" class="btn-primary btn-default">All Threads</a>

@@ -1,13 +1,13 @@
-@page "{threadId:int}"
+@page "{threadId:guid}"
 @model MyApp.Namespace.DetailModel
+
 @{
 }
 
-@if (Model.Message != null)
+@if (Model.Notice != null)
 {
-<div class="alert alert-info">@Model.Message</div>
+<div class="alert alert-info">@Model.Notice</div>
 }
-
 <h2>@Model.Thread.Subject</h2>
 <div>
     Id: @Model.Thread.Id
@@ -15,6 +15,30 @@
 <div>
     Summary: @Model.Thread.Summary
 </div>
-
-
+<div>
+    Messages:
+    <table class="table">
+    @foreach(var message in Model.Thread.Messages)
+    {
+    <tr>
+        <td>@message.Content</td>
+    </tr>
+    }
+    </table>
+</div>
+<div>
+    Add new message: 
+</div>
+<div>
+    Create new message:
+    <form method="post">
+    <input type="hidden" asp-for="Message.Id" />
+    <div class="form-group">
+        <label asp-for="Message.Content"></label>
+        <input asp-for="Message.Content" class="form-control" />
+        <span class="text-danger" asp-validation-for="Message.Content"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form> 
+</div>
 <a asp-page="./List" class="btn-primary btn-default">All Threads</a>

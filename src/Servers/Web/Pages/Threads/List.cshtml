@@ -30,16 +30,29 @@
 
             </td>
         <td>
-            <a class="btn btn-lg"
+        <div class="container">
+            <div class="row">
+            <div class="col-sm">
+                <a class="btn btn-lg"
                asp-page="./Detail"
                asp-route-threadId="@thread.Id">
                 <img src="~/bootstrap-icons/zoom-in.svg" alt="" width="32" height="32" title="Details" />
-            </a>
-            <a class="btn btn-lg"
+                </a>
+            </div>
+            <div class="col-sm">
+                <a class="btn btn-lg"
                asp-page="./Edit"
                asp-route-threadId="@thread.Id">
                 <img src="~/bootstrap-icons/pencil-square.svg" alt="" width="32" height="32" title="Edit" />
             </a>
+            </div>
+            <div class="col-sm">
+                <form class="btn btn-lg" method="post" asp-page="./Delete" asp-route-threadId="@thread.Id">
+                    <input type="image" src="~/bootstrap-icons/trash.svg" alt="" width="32" height="32" title="Delete" />
+                </form>
+            </div>
+            </div>
+        </div>
         </td>
     </tr>
     }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HawkLab.Data.Core.Persistence;
 using HawkLab.Data.Core.Types;
+using System;
 
 
 namespace HawkLab.Data.InMemoryPersistence
@@ -15,14 +16,14 @@ namespace HawkLab.Data.InMemoryPersistence
         {
             threads = new List<Thread>()
             {
-                new Thread { Id = 1, Subject = "December Projects", Summary = "List of projects we want to finish before Christmas" },
-                new Thread { Id = 2, Subject = "Hawk Lab Ideas", Summary = "List of projects we want to finish before Christmas" },
-                new Thread { Id = 3, Subject = "Home Renovation", Summary = "List of projects we want to finish before Christmas" },
-                new Thread { Id = 4, Subject = "2021 Chile Trip", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = Guid.Parse("10000000-0000-0000-0000-000000000000"), Subject = "December Projects", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = Guid.Parse("20000000-0000-0000-0000-000000000000"), Subject = "Hawk Lab Ideas", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = Guid.Parse("30000000-0000-0000-0000-000000000000"), Subject = "Home Renovation", Summary = "List of projects we want to finish before Christmas" },
+                new Thread { Id = Guid.Parse("40000000-0000-0000-0000-000000000000"), Subject = "2021 Chile Trip", Summary = "List of projects we want to finish before Christmas" },
             };
         }
 
-        public Thread GetById(int id)
+        public Thread GetById(Guid id)
         {
             return threads.SingleOrDefault(t => t.Id == id);
         }
@@ -30,7 +31,7 @@ namespace HawkLab.Data.InMemoryPersistence
         public Thread Add(Thread newThread)
         {
             threads.Add(newThread);
-            newThread.Id = threads.Max(r => r.Id) + 1;
+            // newThread.Id = threads.Max(r => r.Id) + 1;
             return newThread;
         }
 
@@ -58,6 +59,11 @@ namespace HawkLab.Data.InMemoryPersistence
                    where string.IsNullOrEmpty(subject) || t.Subject.StartsWith(subject)
                    orderby t.Subject
                    select t;
+        }
+
+         public void Delete(Thread theThread)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -3,6 +3,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Core\Core.csproj" />
-    <ProjectReference Include="..\..\Data\InMemoryPersistence\InMemoryPersistence.csproj" />
+    <ProjectReference Include="..\..\Data\MongoPersistence\MongoPersistence.csproj" />
   </ItemGroup>
 </Project>

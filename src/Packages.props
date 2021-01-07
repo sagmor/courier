@@ -8,11 +8,13 @@
     </GlobalPackageReference>
 
     <!-- Data Model -->
-    <PackageReference Update="MongoDB.Driver" Version="2.11.4" />
+    <PackageReference Update="MongoDB.Driver" Version="2.11.5" />
 
     <!-- Test Framework -->
     <PackageReference Update="Microsoft.NET.Test.Sdk"   Version="16.7.1" />
     <PackageReference Update="MSTest.TestAdapter"       Version="2.1.2" />
     <PackageReference Update="MSTest.TestFramework"     Version="2.1.2" />
   </ItemGroup>
+
+
 </Project>
